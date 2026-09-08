@@ -1,0 +1,24 @@
+# Sqirl Pancake Recipe
+A recipe for making the best pancakes!
+
+### Ingredients
+- 1.5 cups Flour
+- 3.5 teaspoons Baking powder
+- 1 tablespoon Sugar
+- 0.25 teaspoon Salt
+- 1.25 cups Milk
+- 3 tablespoons Melted Butter
+- 1 Egg
+
+### Steps
+1. Whisk flour, baking powder, sugar, and salt together.
+2. Melt butter.
+3. Gently mix in milk, butter, and egg into the dry mix until just combined.
+4. Grease a pan on the stove.
+5. Pour a circle of batter onto the pan and wait until bubbles start to form.
+6. Flip the pancake and let cook for an additional two minutes.
+7. Plate, top with syrup, and enjoy!
+
+![Fluffy Pancakes](FluffyButtermilkPancakes.webp)
+
+[Link to original recipe](https://www.allrecipes.com/recipe/21014/good-old-fashioned-pancakes/)
