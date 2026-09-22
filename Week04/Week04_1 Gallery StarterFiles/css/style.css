@@ -1,0 +1,66 @@
+/* load the font first so we can use it in our stylesheet */
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
+
+
+/* how we apply the custom font */
+/* font-family: "Google Sans", cursive; */
+
+
+/* 
+.google-sans-<uniquifier> {
+  font-family: "Google Sans", sans-serif;       we want this! in the html
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings:
+    "GRAD" 0;
+} */
+
+
+/* universal selector, applies to every eleent on the page */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+
+/* add our custom font as the default font for the page */
+html {
+font-family: "Google Sans", sans-serif; /*pasted from the google-sans<uniquifier> */
+
+/* declare and use as full size image BG */
+background: url('../img/bg.jpg') no-repeat center center fixed;
+background-size: cover;
+}
+
+.container {
+    width: 900px;
+    margin: 0 auto;
+    /* this is a container for elements we want to stack using inline-block. SO
+    we need to zero out the font size */
+    font-size: 0px;
+}
+
+.polaroid {
+   width: 260px;
+   margin: 20px;
+   /* 260 + 20 + 20 = 300 which stacks beautifully within our 900 pixel box */
+   display: inline-block;
+}
+
+/* descendant selector looking for a pattern of elements */
+/* when there are no commas, its looking for only imgs inside our polaroid div */
+.polaroid img {
+    /* this is a common style for the image tag everywhere
+    the pattern is to make the image 100% the width of its parent, then size the parent */
+    width: 100%;
+    height: auto;
+    /* add a uniform border all around */
+    border: 10px solid #ccc;
+    border-bottom-width: 60px;
+}
+
+.polaroid p {
+    font-size: 1rem; /* remember, 1rem = 16px */
+    
+}
