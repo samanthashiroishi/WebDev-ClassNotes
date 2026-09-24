@@ -1,0 +1,72 @@
+/* load fonts variables and other stylesheets first */
+
+/* this is a grouped selector 
+the comma means that both the html and body tags get this style
+aka making a list of items that will get this style*/
+html, body {
+margin: 0;
+}
+
+/* generic styles so that we can see our div elements and how they nest */
+div, header {
+    /* border shorthand assigns 3 values at once, those are border witdh, 
+    border style, and border color */
+    border: 1px, solid red;
+    padding: 50px;
+}
+
+/* absolute positioned elements without a positioned Parent/Ancestor 
+(by default, everything on the page is positioned static.
+This is how absolutely positioned elements behave on their own. */
+.abs-no-parent {
+    background-color: cornflowerblue;
+    /* by saying position absolute, the element is taken out of the list
+    and  */
+    position: absolute;
+        top: 20%;
+        right: -200px;
+}
+
+.rel-parent {
+    background-color: blueviolet;
+    width: 50%;
+    /* height % doesn't work unless that element is inside of an element
+    with defined height 
+    viewport width/height take a percentage of your screen's width/height */
+    height: 200vh; /* x% of viewport height, could also do vw for viewport width */
+    /* whenever you want to absolutely position an element INSIDE of or 
+    RELATIVE to a parent element, that parent element MUST be positioned usually relative.
+    AKA not default (static). */
+    position: relative;
+}
+
+.abs-rel-parent {
+    background-color: rgba(12, 237, 16, 0.5);
+    width: 200px;
+    height: 200px;
+    position: absolute;
+        bottom: 200px;
+        right: 0;
+}
+
+header {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    background: coral;
+    /* pulls it 10 elements forward, so now it's at the front of the page.
+    negative sends it back from where they render by default */
+    z-index: 10; 
+}
+
+/* this is a great helper class to make an element cover the entire page */
+.cover {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        top: 0;
+    z-index: 10;
+
+}

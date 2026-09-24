@@ -1,0 +1,106 @@
+
+* {
+    box-sizing: border-box;
+    /* tells the browser to include an element's padding and border within 
+    its total specified width and height */
+}
+
+body {
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+/* 
+PARENT/CONTAINER/THE THING THAT DISPLAYS FLEX
+- Display flex is applied to the parent element, aka the thing that contains 
+
+- Flex-Wrap defaults to nowrap which means all items within will squish
+onto one row.
+
+- Justify Content: applied to the container/element that displays the flex (align access)
+
+- Align items: applies to the container/element that displays flex (cross axis) 
+        - Align items defaults to stretch, which fills the parent container height, 
+          unless the flex-items (children) have a defined height, then height wins.  */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    /* if you want your items to wrap/stack onto a new line when they run out of
+    space, you have to saw flex-wrap: wrap.  default behavior is to squish/flex
+    each item to fit in one row. */
+    flex-wrap: wrap;
+    border: 1px solid purple;
+    background-color: rgba(255, 0, 255, 0.3);
+    min-height: 400px;
+}
+
+.item {
+    width: 21%;
+    height: 300px;
+    border: 1px solid cornflowerblue;
+    background-color: rgba(0, 0, 255, 0.3);
+}
+
+/* variations using atomic CSS */
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-around {
+    justify-content: space-around;
+}
+
+.justify-even {
+    justify-content: center;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+/* align items gets applied to the cross axis */
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.align-stretch {
+    align-items: stretch;
+}
+
+/* any element that is a direct descendant of an element that  */
+.align-stretch > * {
+    height: auto;
+}
+
+.align-self {
+    align-self: stretch;
+    height: auto;
+}

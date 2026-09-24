@@ -46,6 +46,7 @@ background-size: cover;
    margin: 20px;
    /* 260 + 20 + 20 = 300 which stacks beautifully within our 900 pixel box */
    display: inline-block;
+   position: relative;
 }
 
 /* descendant selector looking for a pattern of elements */
@@ -62,5 +63,13 @@ background-size: cover;
 
 .polaroid p {
     font-size: 1rem; /* remember, 1rem = 16px */
+    color: red;
+    position: absolute;
+        bottom: 10px;
+        width: 280px;
+    text-align: center;
     
+
+
+
 }
