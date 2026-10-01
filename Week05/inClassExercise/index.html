@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Flexbox Layouts</title>
+    <!-- https://fonts.google.com/icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0&icon_names=arrow_upload_ready"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+      <header class="site-header">
+          <div class="bar">
+            <a class="logo" href="#">
+              <span class="logo-mark">9</span>
+              Studio Nine
+            </a>
+
+            <nav aria-label="Main">
+              <ul class="menu-bar">
+                <li> <a href="#" class="current" aria-current="page">Home</a> </li>
+
+                <!-- anchor tag first -->
+                <li class="has-menu"> 
+                  <a href="#" aria-haspopup="true">Work  <span class="caret"></span></a>
+                 <!-- unordered list for submenu -->
+                  <ul class="submenu">
+                  <li><a href="#">Web Dev</a></li>
+                  <li><a href="#">Photography</a></li>
+                  <li><a href="#">Brand &amp; Identity</a></li>
+                  <!-- HTML entities like &amp; another common one is &nbsp;
+                   which adds extra spaces between words -->
+
+                 </ul>
+                </li>
+
+
+            <li class="has-menu"> 
+              <!-- anchor tag first -->
+              <a href="#" aria-haspopup="true">Studio</a>
+              <!-- unordered list for submenu -->   
+              <ul class="submenu">
+                  <li><a href="#">About Us</a></li>
+                  <li><a href="#">Team</a></li>
+                  <li><a href="#">Careers</a></li>
+                  <!-- HTML entities like &amp; another common one is &nbsp;
+                   which adds extra spaces between words -->
+
+                 </ul>
+                </li>
+
+    <li> <a href="#">Journal</a></li>
+    <li> <a href="#" class="cta">Contact</a></li>   
+
+              </ul>
+            </nav>
+
+          </div>
+      </header>
+  </body>
+  </html>

@@ -1,0 +1,227 @@
+/* Global styles first */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+
+/* NAV BAR */
+nav {
+    position: relative;
+    z-index: 10;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+}
+
+nav li {
+    display: inline-block;
+    position: relative;
+}
+
+nav a { 
+    display: block;
+    padding: 1rem 1.5rem;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.25s ease;
+}
+
+nav a:hover {
+    background-color: green;
+}
+
+/* Sub Nav Styles */
+nav li ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 14rem;
+    background-color: #ccc;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+}
+
+
+nav li:hover ul {
+    display: block;
+}
+
+nav li li {
+    display: block;
+}
+
+nav li li a {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.95rem;
+}
+
+
+/* JUMBOTRON */
+.hero {
+    width: 100vw; /*viewport width*/
+    max-height: 100vh; /*viewport height*/
+    overflow: hidden; /*clips the image to screen size so there's no scrolling*/
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.hero article {
+    position: absolute;
+    bottom: 20%;
+    right: 0; 
+    width: 50%;
+    padding: 2%;
+    color: #FFF;
+    background: linear-gradient(
+        to right, 
+        rgba(30, 87, 153, 1) 0%, 
+        rgba(125, 185, 232, 0) 100%
+    );
+}
+
+button, a.info {
+    display: inline-block;
+    width: 10rem;
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 10px;
+    color: white;
+    background-color: #333;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    /* the transition gets defined on the resting state */
+    /* resting state: when the page loads, what is the style */
+    transition: all 1s ease;
+    /* ease is optional */
+    /* alternatively, you can list them all out instead with commas */
+}
+
+button:hover, a.info:hover {
+    background-color:cornsilk;
+    color: #333;
+}
+
+/* GALLERY */
+.container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 2rem;
+    gap: 2rem;
+}
+
+.thumb {
+    /* flex-grow: 0, flex-shrink: 0, flex-basis: (width) */
+    flex: 0 0 30%;
+    margin: 1.5 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.mask {
+    /* pin all 4 edges to the parents edges */
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    /* center the content on both axes */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: all 1s ease;
+}
+
+.mask h2 {
+    margin: 0;
+}
+
+.mask p {
+    font-style: italic;
+}
+
+/* transition to make it appear on hover */
+.thumb:hover .mask {
+    opacity: 1;
+}
+
+/* define the image resting state explicitly so that we have properties to change */
+.thumb img {
+    transform: scale(1) rotate(0); /* These look like the starting state so that when they change, they animate */
+
+}
+
+.thumb:hover img {
+    transform: scale(1.5) rotate(-20deg);
+        transition: all 1s ease;
+}
+
+.thumb .mask h2,
+.thumb .mask p,
+.thumb .mask a {
+    opacity: 0;
+    transform: scale(0);
+    transition: all 1s ease-in-out;
+}
+
+.thumb:hover .mask h2,
+.thumb:hover .mask p,
+.thumb:hover .mask a {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Media Queries (conditional statements that apply style overrides) */
+/* Desktop First styles: default style sheet is for large screens, override big --> small */
+
+/* TABLET */
+@media screen and (width <= 1024px) {
+    .hero article {
+        width: 80%;
+        bottom: 10%;
+    }
+
+    .thumb {
+        flex-basis: 45%;
+    }
+}
+
+
+/* PHONE */
+@media screen and (width <= 768px) {
+    .hero article {
+        width: 100%;
+        bottom: 0%;
+        text-align: center;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 0.75rem;
+
+    }
+
+}
