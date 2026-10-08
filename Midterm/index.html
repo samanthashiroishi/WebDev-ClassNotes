@@ -9,20 +9,54 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+
+
+    <!-- JAVASCRIPT FOR HAMBURGER MENU -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.querySelector('.mobile-menu');
+        hamburger.addEventListener('click', toggleShow);
+
+      });
+
+      function toggleShow() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('show');
+      }
+    </script>
+
+
+
   </head>
 
   <body>
 
+      <!-- header wraps the title, hamburger, and nav
+   so that they can be positioned together -->
+
+<header>
+
     <h1>for keeping</h1>
 
-    <nav>
-      <ul>
-  <a href="comfort.html">comfort</a>
-  <a href="wonder.html">wonder</a>
-  <a href="change.html">change</a>
-  <a href="connection.html">connection</a>
-  </ul>
-</nav>
+    <!-- hamburger menu shold only
+     show up on iPad and mobile, not
+     on desktop -->
 
-  </body>
+<span class="mobile-menu">&#8801;</span>
+    <nav>
+
+      <!-- id = "menu" so that JS can 
+       find the menu and add/remove the "show" -->
+      <ul id ="menu">
+        <li><a href="comfort.html">comfort</a></li>
+        <li><a href="wonder.html">wonder</a></li>
+        <li><a href="change.html">change</a></li>
+        <li><a href="connection.html">connection</a></li>
+      </ul>
+    </nav>
+
+</header>
+</body>
 </html>
