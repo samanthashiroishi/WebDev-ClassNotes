@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
 
 :root {
-   --ink: #203979;
+   --ink: #14295f;
    --paper: #fff;
-   --accent: #de3434;
+   --accent: #040e27;
+   --unselected: #3a5086;
    --radius: rgb(229, 171, 185);
    --speed: 0.18s;
    --font: 'Della Respira', serif;
