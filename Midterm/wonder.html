@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,29 +9,44 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- JAVASCRIPT FOR HAMBURGER MENU -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var hamburger = document.querySelector('.mobile-menu');
+        hamburger.addEventListener('click', toggleShow);
+      });
+
+      function toggleShow() {
+        var menu = document.getElementById('menu');
+        menu.classList.toggle('show');
+      }
+    </script>
   </head>
 
-<body>
+  <body>
 
- <h1><a href="index.html">for keeping</a></h1>
+    <header>
+      <h1><a href="index.html">for keeping</a></h1>
 
-  <header>
+      <!-- Hamburger menu for tablet/mobile -->
+      <span class="mobile-menu">&#8801;</span>
+
       <nav>
-        <ul>
+        <ul id="menu">
           <li><a href="comfort.html">comfort</a></li>
-          <li><a href="wonder.html">wonder</a></li>
-          <li><a href="change.html">change</a></li>
+          <li><a href="wonder.html" class="active">wonder</a></li>
           <li><a href="connection.html">connection</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
-      <h2>wonder</h2>
+      <!-- Wonder content goes here -->
 
-      <!-- Comfort content goes here -->
-
+          <!-- Page heading -->
+    <h3>   . ִ ་ ˖  ʿ  ִֶָ ׄ.𖥔 ݁ ˖ causes of intrigue   . ִ ་ ˖  ʿ  ִֶָ ׄ.𖥔 ݁ ˖ </h3>
     </main>
 
-</body>
+  </body>
 </html>

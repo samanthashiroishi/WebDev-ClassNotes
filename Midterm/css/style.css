@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
 
 :root {
-   --ink: #14295f;
+   --ink: #314d94;
+   --logoink: #233f84;
    --paper: #fff;
-   --accent: #040e27;
-   --unselected: #3a5086;
+   --accent: #102455;
    --radius: rgb(229, 171, 185);
    --speed: 0.18s;
-   --font: 'Della Respira', serif;
+   --logofont: 'Della Respira', serif;
+   --regfont: 'Times New Roman', sans-serif;
 }
 
 * {
@@ -15,7 +16,7 @@
 }
 
 body {
-   font-family: var(--font);
+   font-family: var(--regfont);
    color: var(--ink);
    background: var(--paper);
    margin: 0;
@@ -30,8 +31,10 @@ header {
 
 
 h1 {
+   font-family: var(--logofont);
+   color: var(--logoink);
    position: absolute;
-   top: 11rem;
+   top: 15rem;
    left: 1rem;
    transform: rotate(-90deg);
    transform-origin: left top;
@@ -46,7 +49,6 @@ h1 a {
 nav {
    position: relative;
    z-index: 10;
-
    display: flex;
    justify-content: center;
 }
@@ -79,16 +81,233 @@ nav li a:hover {
    color: var(--accent);
 }
 
+
+nav a.active {
+   color: var(--accent);
+}
+
+
+/* container for the sketch and frame */
+.sketch-frame {
+   position: relative;
+   width: 800px;
+   height: 640px;
+   max-width: 90%;
+   margin: 2rem auto;
+}
+
+/* p5.js sketch */
+.sketch-frame iframe {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+
+   width: 95%;
+   height: 95%;
+   border: none;
+   display: block;
+}
+
+/* picture frame layered over the sketch */
+.frame-overlay {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+
+   /* temporarily make frame see-through */
+   /* opacity: 0.2; */
+
+   pointer-events: none;
+}
+
 .mobile-menu {
    display: none;
 
 }
 
+/* Hide background video on desktop and tablet */
+#myVideo {
+   display: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* COMFORT PAGE */
+/* Comfort page heading */
+main h3 {
+   text-align: center;
+   font-family: 'Times New Roman', serif;
+   font-weight: normal;
+   color: var(--ink);
+   font-size: 16px;
+}
+
+
+/* FLUFFYS GROUP */
+.fluffys-group {
+      width: fit-content;
+   max-width: 90%;
+   margin: 4rem auto 0;
+}
+
+.fluffys-photos {
+   display: grid;
+   grid-template-columns: repeat(2, 250px);
+   gap: 10px;
+}
+
+
+.fluffys-photos img{
+   width: 100%;
+   height: auto;
+   display: block;
+}
+
+.fluffys-photos video {
+   width: 340px;
+   height: auto;
+   display: block;
+   background: lightgray;
+}
+
+.fluffys-caption {
+      margin-top: 12px;
+   font-size: 14px;
+   text-align: center;
+   max-width: 370px;
+}
+
+
+
+/* NEIGHBOR GROUP */
+.neighbor-group {
+   width: fit-content;
+   max-width: 90%;
+   margin: 4rem auto 0;
+}
+
+/* Arrange photographs in two rows of two */
+.neighbor-photos {
+   display: grid;
+   grid-template-columns: repeat(2, 180px);
+   gap: 10px;
+}
+
+/* Preserve original image proportions */
+.neighbor-photos img {
+   width: 100%;
+   height: auto;
+   display: block;
+}
+
+/* Caption below photographs */
+.neighbor-caption {
+   margin-top: 12px;
+   font-size: 14px;
+   text-align: center;
+   max-width: 370px;
+}
+
+
+.window-dress-group {
+      width: fit-content;
+   max-width: 90%;
+   margin: 4rem auto 0;
+}
+
+/* Window dress photographs */
+.window-dress {
+   display: grid;
+   grid-template-columns: repeat(2, 260px);
+   gap: 10px;
+
+   width: fit-content;
+   max-width: 90%;
+   margin: 8rem auto 0; 
+}
+
+/* Preserve original image proportions */
+.window-dress img {
+   width: 100%;
+   height: auto;
+   display: block;
+}
+
+/* Caption below window dress photographs */
+.window-dress-caption {
+   margin-top: 12px;
+   font-size: 14px;
+   text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* WONDER PAGE */
+/* Wonder page heading */
+main h3 {
+   text-align: center;
+   font-family: 'Times New Roman', serif;
+   font-weight: normal;
+   color: var(--ink);
+   font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* IPDAD / TABLET */
 @media screen and (max-width: 1024px) {
-   body {
-      background-color:rgb(237, 204, 212);
-   }
+
 
    header {
       flex-direction: column;
@@ -109,13 +328,6 @@ nav li a:hover {
    }
 
    /* hamburger menu */
-   /* I want this to only show up on
-   iPad and mobile versions */
-
-   /* the hamburger menu will have
-   comfort, wonder, change, connection */
-
-   /* for keeping will move to the top center of page */
    .mobile-menu {
       display: block;
 
@@ -133,6 +345,48 @@ nav li a:hover {
       flex-direction: column;
    }
 
+/* hide navigation until hamburger is clicked */
+nav ul {
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+
+   /* position dropdown on the left */
+   position: absolute;
+   top: 0;
+   left: 1rem;
+
+   /* white dropdown box */
+   width: 180px;
+   background-color: white;
+   padding: 0.5rem;
+   border-radius: 0;
+   z-index: 20;
+
+   /* fade animation */
+   opacity: 0;
+   visibility: hidden;
+   pointer-events: none;
+   transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+/* show navigation when hamburger is clicked */
+nav ul.show {
+   opacity: 1;
+   visibility: visible;
+   pointer-events: auto;
+}
+
+/* style links inside dropdown */
+nav ul li {
+   width: 100%;
+   text-align: left;
+}
+
+nav ul li a {
+   padding: 0.7rem 1rem;
+}
+
    nav {
       width: 100%;
    }
@@ -140,18 +394,73 @@ nav li a:hover {
    nav li {
       width: 100%
    }
+
+/* TABLET */
+@media screen and (max-width: 1024px) {
+
+   /* Outer picture frame */
+   .sketch-frame {
+      width: 600px;
+      height: 480px;
+      max-width: 100%;
+   }
+
+   /* Sketch inside the frame */
+   .sketch-frame iframe {
+      width: 83%;
+      height: 83%;
+      top: 44%;
+   }
+
+}
 }
 
 
 /* MOBILE */
 @media screen and (max-width: 767px) {
-   body {
-      background-color: rgb(229, 211, 188);
+
+   /* Show video on mobile only */
+   #myVideo {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 1;
    }
 
    nav ul {
-      width: 100%;
+   width: 180px;
    }
 
+   /* Keep title and hamburger menu above the video */
+header {
+   position: relative;
+   z-index: 2;
+}
 
+h1, .mobile-menu {
+   opacity: 1;
+}
+
+   /* Hide the p5.js sketch and picture frame on mobile */
+   .sketch-frame {
+      display: none;
+   }
+
+   /* Change title and hamburger colors on mobile */
+h1 {
+   color: white;
+}
+
+h1 a {
+   color: white;
+}
+
+.mobile-menu {
+   color: white;
+}
 }
