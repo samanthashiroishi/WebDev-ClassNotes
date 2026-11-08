@@ -1,0 +1,235 @@
+* {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --accent: #9b5360;
+      --cream: #f7f3eb;
+      --paper: #fffdf8;
+      --brown: #382d29;
+      --muted: #887b72;
+      --line: #e6ddd1;
+    }
+
+    body {
+      margin: 0;
+      padding: 50px 20px;
+      background: var(--cream);
+      color: var(--brown);
+      font-family: Arial, sans-serif;
+    }
+
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    header {
+      padding: 48px 0 35px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Georgia, serif;
+      font-size: clamp(42px, 8vw, 68px);
+      font-weight: normal;
+      letter-spacing: -2px;
+    }
+
+    .intro {
+      margin: 14px auto 0;
+      max-width: 400px;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-size: 16px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .dessert-card {
+      overflow: hidden;
+      background: var(--paper);
+      border: 1px solid var(--line);
+    }
+
+    .card-top {
+      padding: 22px 28px;
+      background: var(--accent);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .dessert-content {
+      padding: 38px 42px;
+    }
+
+    .category {
+      color: var(--accent);
+      font-size: 10px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 10px 0 12px;
+      font-family: Georgia, serif;
+      font-size: clamp(30px, 6vw, 44px);
+      font-weight: normal;
+    }
+
+    .description {
+      max-width: 530px;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 30px 0;
+      padding: 22px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .detail-label {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 9px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .detail-value {
+      font-family: Georgia, serif;
+      font-size: 19px;
+    }
+
+    .section-heading {
+      margin: 0 0 14px;
+      font-family: Georgia, serif;
+      font-size: 21px;
+      font-weight: normal;
+    }
+
+    .ingredients {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 24px;
+      padding: 0;
+      margin: 0;
+      list-style: none;
+    }
+
+    .ingredients li {
+      padding: 12px 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    .ingredients .stripe {
+      background: #f7f1e9;
+    }
+
+    .ingredients .highlight {
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .occasion {
+      margin-top: 30px;
+      padding: 17px 20px;
+      background: #f7f1e9;
+      color: var(--muted);
+      font-family: Georgia, serif;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .order {
+      margin-top: 30px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+
+    .order-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 7px 0;
+      font-size: 13px;
+    }
+
+    .order-row span:first-child {
+      color: var(--muted);
+    }
+
+    .order-row.total {
+      margin-top: 10px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      font-family: Georgia, serif;
+      font-size: 21px;
+    }
+
+    .status {
+      margin-top: 24px;
+      padding: 13px;
+      background: #f7f1e9;
+      color: var(--accent);
+      font-size: 12px;
+      text-align: center;
+      letter-spacing: 0.5px;
+    }
+
+    footer {
+      padding: 26px 0;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    @media (max-width: 520px) {
+      body {
+        padding: 25px 14px;
+      }
+
+      .dessert-content {
+        padding: 28px 22px;
+      }
+
+      .details {
+        gap: 8px;
+      }
+
+      .detail-value {
+        font-size: 16px;
+      }
+
+      .ingredients {
+        grid-template-columns: 1fr;
+      }
+    }

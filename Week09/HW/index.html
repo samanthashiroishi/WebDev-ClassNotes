@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Dessert Counter</title>
+
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+  <main class="page">
+
+    <div class="topline">
+      <span id="shopName"></span>
+      <span id="edition"></span>
+    </div>
+
+    <header>
+      <h1 id="pageTitle"></h1>
+      <p class="intro" id="intro"></p>
+    </header>
+
+    <article class="dessert-card">
+
+      <div class="card-top">
+        <span id="selectionNumber"></span>
+        <span id="availabilityLabel"></span>
+      </div>
+
+      <div class="dessert-content">
+
+        <p class="category" id="category"></p>
+        <h2 id="dessertName"></h2>
+        <p class="description" id="description"></p>
+
+        <section class="details">
+          <div>
+            <p class="detail-label">Preparation</p>
+            <div class="detail-value" id="prepTime"></div>
+          </div>
+
+          <div>
+            <p class="detail-label">Price</p>
+            <div class="detail-value" id="price"></div>
+          </div>
+
+          <div>
+            <p class="detail-label">Servings left</p>
+            <div class="detail-value" id="servingsLeft"></div>
+          </div>
+        </section>
+
+        <section>
+          <h3 class="section-heading">Ingredients</h3>
+          <ul class="ingredients" id="ingredients"></ul>
+        </section>
+
+        <p class="occasion" id="occasion"></p>
+
+        <section class="order">
+          <h3 class="section-heading">Your order</h3>
+
+          <div class="order-row">
+            <span id="orderDescription"></span>
+            <span id="subtotal"></span>
+          </div>
+
+          <div class="order-row">
+            <span>Service fee (8%)</span>
+            <span id="serviceFee"></span>
+          </div>
+
+          <div class="order-row">
+            <span id="discountLabel"></span>
+            <span id="discount"></span>
+          </div>
+
+          <div class="order-row total">
+            <span>Total</span>
+            <span id="total"></span>
+          </div>
+        </section>
+
+        <p class="status" id="status"></p>
+
+      </div>
+    </article>
+
+    <footer id="footer"></footer>
+
+  </main>
+
+  <script>
+    /* Arrays of dessert information  */
+
+    const desserts = [
+      {
+        name: "Strawberry Shortcake",
+        category: "Cakes",
+        description: "Soft vanilla sponge layered with fresh strawberries and lightly whipped cream.",
+        ingredients: ["Strawberries", "Vanilla sponge", "Whipped cream", "Powdered sugar"],
+        price: 8.50,
+        prepTime: 35
+      },
+      {
+        name: "Lemon Meringue Tart",
+        category: "Tarts & Pastries",
+        description: "A buttery pastry shell filled with lemon curd and toasted meringue.",
+        ingredients: ["Lemon curd", "Butter pastry", "Egg whites", "Vanilla"],
+        price: 7.75,
+        prepTime: 45
+      },
+      {
+        name: "Matcha Pudding",
+        category: "Custards & Puddings",
+        description: "Silky Japanese matcha pudding with a sweet and creamy finish.",
+        ingredients: ["Matcha powder", "Whole milk", "Cream", "Gelatin"],
+        price: 6.50,
+        prepTime: 25
+      },
+      {
+        name: "Chocolate Hazelnut Tart",
+        category: "Tarts & Pastries",
+        description: "Rich dark chocolate ganache in a crisp pastry shell with roasted hazelnuts.",
+        ingredients: ["Dark chocolate", "Hazelnuts", "Butter pastry", "Heavy cream"],
+        price: 9.25,
+        prepTime: 50
+      },
+      {
+        name: "Vanilla Bean Panna Cotta",
+        category: "Custards & Puddings",
+        description: "A delicate vanilla cream dessert served with a seasonal fruit topping.",
+        ingredients: ["Vanilla bean", "Heavy cream", "Sugar", "Fresh fruit"],
+        price: 7.00,
+        prepTime: 30
+      },
+      {
+        name: "Black Sesame Cheesecake",
+        category: "Cakes & Sponge",
+        description: "A smooth cheesecake with black sesame and a crisp biscuit base.",
+        ingredients: ["Black sesame", "Cream cheese", "Biscuit crumbs", "Eggs"],
+        price: 9.50,
+        prepTime: 55
+      }
+    ];
+
+    const garnishes = [
+      "Seasonal fruit",
+      "Toasted almonds",
+      "Edible flowers",
+      "Candied citrus",
+      "Chocolate shavings"
+    ];
+
+    const occasions = [
+      "A little something for a slow afternoon.",
+      "Best enjoyed with a cup of tea and good company.",
+      "An ideal ending to a long dinner.",
+      "A sweet treat for to brighten your day."
+    ];
+
+    const taglines = [
+      "Handmade with love.",
+      "A little sweetness goes a long way.",
+      "Something lovely for the day.",
+      "A small treat, just because."
+    ];
+
+    const accentColors = [
+      "#9b5360",
+      "#8b684e",
+      "#73816a",
+      "#a77d62",
+      "#77647f"
+    ];
+
+
+    /* Random selection functions */
+
+    function pickRandom(list) {
+      const index = Math.floor(Math.random() * list.length);
+      return list[index];
+    }
+
+    function randomBetween(min, max) {
+      return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
+    /* Generate random dessert */
+
+    const dessert = pickRandom(desserts);
+    const garnish = pickRandom(garnishes);
+    const occasion = pickRandom(occasions);
+    const tagline = pickRandom(taglines);
+
+    const quantity = randomBetween(1, 3);
+    const capacity = randomBetween(30, 60);
+    const servingsSold = randomBetween(0, capacity);
+    const prepTime = dessert.prepTime + randomBetween(-5, 10);
+
+    const price = dessert.price;
+    const serviceRate = 0.08;
+
+    const isMember = Math.random() < 0.4;
+
+    const servingsLeft = capacity - servingsSold;
+
+    const isSoldOut = servingsLeft === 0;
+    const isAlmostSoldOut = servingsLeft > 0 && servingsLeft <= 8;
+
+    const isPremium = price >= 9;
+
+    const subtotal = price * quantity;
+    const serviceFee = subtotal * serviceRate;
+    const discount = isMember ? subtotal * 0.10 : 0;
+    const total = subtotal + serviceFee - discount;
+
+    const averagePrice = Math.round(desserts.reduce((sum, item) => sum + item.price, 0) / desserts.length);
+
+
+    /* ---------- Determine availability message ---------- */
+
+    let status;
+
+    if (isSoldOut) {
+      status = "Sorry, today's selection has sold out.";
+    } 
+    else if (isAlmostSoldOut) {
+      status = `Almost gone! Only ${servingsLeft} servings remain.`;
+    } 
+    else {
+      status = `Available today. ${servingsLeft} servings remaining.`;
+    }
+
+
+    /* Build ingredients list  */
+
+    const ingredientList = [...dessert.ingredients, garnish];
+
+    let ingredientsHTML = "";
+
+    for (let i = 0; i < ingredientList.length; i++) {
+      const stripe = i % 2 === 0 ? "stripe" : "";
+      const highlight = i === ingredientList.length - 1 ? "highlight" : "";
+
+      ingredientsHTML += `
+        <li class="${stripe} ${highlight}">
+          ${ingredientList[i]}
+        </li>
+      `;
+    }
+
+
+    /* Display info on the page  */
+
+    document.querySelector("#shopName").textContent = "The Dessert Counter";
+    document.querySelector("#edition").textContent = "A daily selection";
+
+    document.querySelector("#pageTitle").textContent = "Something Sweet";
+    document.querySelector("#intro").textContent = tagline;
+
+    document.querySelector("#selectionNumber").textContent =
+      `Today's selection · No. ${randomBetween(1, 99)}`;
+
+    document.querySelector("#availabilityLabel").textContent =
+      isSoldOut ? "Sold out" : "Available";
+
+    document.querySelector("#category").textContent =
+      isPremium ? `${dessert.category} · Special selection` : dessert.category;
+
+    document.querySelector("#dessertName").textContent = dessert.name;
+
+    document.querySelector("#description").textContent =
+      `${dessert.description} Finished with ${garnish.toLowerCase()}.`;
+
+    document.querySelector("#prepTime").textContent = `${prepTime} min`;
+
+    document.querySelector("#price").textContent = `$${price.toFixed(2)}`;
+
+    document.querySelector("#servingsLeft").textContent = servingsLeft;
+
+    document.querySelector("#ingredients").innerHTML = ingredientsHTML;
+
+    document.querySelector("#occasion").textContent = occasion;
+
+    document.querySelector("#orderDescription").textContent =
+      `${quantity} × ${dessert.name}`;
+
+    document.querySelector("#subtotal").textContent =
+      `$${subtotal.toFixed(2)}`;
+
+    document.querySelector("#serviceFee").textContent =
+      `$${serviceFee.toFixed(2)}`;
+
+    document.querySelector("#discountLabel").textContent =
+      isMember ? "Member discount (10%)" : "Member discount";
+
+    document.querySelector("#discount").textContent =
+      `-$${discount.toFixed(2)}`;
+
+    document.querySelector("#total").textContent =
+      `$${total.toFixed(2)}`;
+
+    document.querySelector("#status").textContent = status;
+
+    document.querySelector("#footer").textContent =
+      `The Dessert Counter · Average dessert price $${averagePrice.toFixed(0)} · ${tagline}`;
+
+    document.body.style.setProperty(
+      "--accent",
+      pickRandom(accentColors)
+    );
+
+
+    /*  Console information  */
+
+    console.log("Today's dessert:", dessert.name);
+    console.log("Servings left:", servingsLeft);
+    console.log("Order total:", total.toFixed(2));
+  </script>
+
+</body>
+</html>
